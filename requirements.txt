@@ -1,0 +1,12 @@
+torch
+transformers
+accelerate
+bitsandbytes
+sentence-transformers
+faiss-cpu
+pdfplumber
+nltk
+rouge-score
+bert-score
+scikit-learn
+tqdm
