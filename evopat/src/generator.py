@@ -19,7 +19,7 @@ def generate_response(prompt, max_new_tokens=500):
     inputs = tokenizer(prompt, return_tensors="pt").to(device)
 
     print("Prompt tokens:", inputs["input_ids"].shape[1])
-
+    
     with torch.no_grad():
         outputs = model.generate(
             **inputs,
@@ -30,3 +30,4 @@ def generate_response(prompt, max_new_tokens=500):
         )
 
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
+
