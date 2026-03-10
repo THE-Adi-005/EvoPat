@@ -1,0 +1,41 @@
+Innovation
+The patent introduces a healthcare provider interface for treatment option and authorization, with the following key innovations:
+Streamlined Prior Authorization Process: Simplifies the prior authorization (PA) process for medications and treatments, reducing the time and effort required by healthcare providers and patients.
+Graphical User Interface (GUI): A specially configured GUI that includes input and output interface display pages. The input pages are designed to receive comprehensive patient information, including demographic, physiological, insurance, past treatment, and diagnosis information.
+Real-Time Treatment List Generation: Generates a treatment list in real-time or near real-time based on inputted patient information, insurance requirements, and past treatment history. The list is tailored to show treatments likely to be approved by insurance providers.
+Prior Authorization Output: Includes a prior authorization output that displays fields for data required for insurance prior authorization, which can be entered manually or extracted from external sources.
+Support for Attachments: Allows for the attachment of supporting documents or images, which can be crucial for justifying specific treatments or off-label prescriptions.
+Integration with External Databases: Can retrieve and auto-fill patient information from external databases, such as patient medical history databases, prescription drug monitoring programs (PDMP), and state or national online health information exchange databases.
+User-Friendly Navigation: Features for toggling between pages and a searchable drop-down list of diagnoses and ICD-10 diagnosis codes, making it intuitive and easy to use.
+Efficient Communication: Facilitates efficient communication between healthcare providers, insurance providers, and pharmacies, ensuring timely approval and provision of treatments.
+
+
+Abstract
+The patent describes a healthcare provider interface for treatment option and authorization. The interface includes a display coupled to one or more processors, with a graphical user interface (GUI) comprising input and output interface display pages. The input pages are configured to receive patient demographic and physiological information, insurance information, past treatments, and medical diagnoses. The output pages display a treatment list generated based on the received information and a prior authorization output. The system aims to streamline the prior authorization process, making it more efficient and reducing the administrative burden on healthcare providers.
+
+
+Methodology
+The methodology of the patent involves several key steps and components:
+System Architecture: The system includes a healthcare provider device with a display, one or more processors, memory, and communication circuitry. The device is connected to a server via a network, which includes databases for storing patient and insurance information.
+Input Interface Display Pages: These pages are designed to receive comprehensive patient information, including:
+Demographic and Physiological Information: Name, gender, address, height, weight, date of birth, and medical record number.
+Insurance Information: Name of the insurance provider, policy number, member ID number, and BIN number.
+Past Treatment Information: Name, strength, form, date range, and reason for stopping past treatments.
+Diagnoses: Searchable drop-down list of diagnoses and ICD-10 diagnosis codes.
+Attachments: Documents or images in support of specific treatments.
+Treatment List Generation: The system generates a treatment list based on the inputted information, insurance requirements, and past treatment history. The list is sorted based on criteria such as prior authorization requirements, likelihood of insurance approval, treatment cost, patient ratings, provider ratings, availability, and genetic factors.
+Prior Authorization Output: Displays fields for data required for insurance prior authorization, which can be entered manually or extracted from external sources. The output includes options for attaching supporting documents.
+User Interaction and Navigation: The interface allows users to toggle between pages and includes features like predictive text options and searchable drop-down lists for efficient data entry and retrieval.
+Communication and Data Transmission: The system facilitates communication between healthcare providers, insurance providers, and pharmacies. It transmits prior authorization forms and supporting documents to relevant entities for treatment authorization.
+Real-Time Updates and Auto-Fill: The system retrieves and auto-fills patient information from external databases, ensuring that the information is up-to-date and reducing manual data entry.
+
+
+Results
+The results of implementing the system described in the patent include:
+Reduced Administrative Burden: The streamlined prior authorization process reduces the time and effort required by healthcare providers, allowing them to focus more on patient care.
+Improved Efficiency: The real-time generation of treatment lists and auto-fill features enhance the efficiency of the prior authorization process, reducing delays in treatment approvals.
+Enhanced Communication: The system facilitates better communication between healthcare providers, insurance providers, and pharmacies, ensuring that all parties are informed and aligned.
+Increased Approval Rates: By providing comprehensive and accurate information, including supporting documents, the system increases the likelihood of treatment approvals by insurance providers.
+Patient-Centric Care: The interface supports personalized treatment options based on patient-specific information, improving the quality of care and patient outcomes.
+Integration with External Systems: The ability to retrieve and auto-fill information from external databases ensures that the system is always working with the most current and comprehensive patient data.
+User-Friendly Experience: The intuitive and easy-to-navigate interface improves user satisfaction and reduces the learning curve for healthcare providers.

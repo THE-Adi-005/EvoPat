@@ -55,7 +55,7 @@ def run_pipeline(pdf_path, query):
 
     # ---- PROMPT ----
     prompt = f"""
-You are a professional patent examiner.
+You are a technical research analyst.
 
 Use ONLY the provided PATENT CONTEXT.
 Do NOT copy large verbatim text.
@@ -66,10 +66,10 @@ PATENT CONTEXT:
 
 Generate the following sections clearly and completely:
 
-Innovation
-Abstract
-Methodology
-Results
+Technical Summary
+Core Innovation
+Implementation Details
+Impact & Applications
 
 """
 
@@ -81,227 +81,48 @@ Results
 
     # ---- EVALUATION ----
     gold_output = """
-Innovation:
-AI-Powered Clinical Data Management and Medication Reconciliation System
-This patent introduces a system, method, and apparatus for annotated clinical data management, designed to centralize, validate, and reconcile patient medication and clinical data from disparate healthcare sources (e.g., hospitals, pharmacies, labs, EHRs). The innovation addresses critical gaps in medication adherence, polypharmacy risks, and care coordination by:
+Innovation
+The patent introduces a system and method for collaborative notifications in healthcare settings, with the following key innovations:
+Collaborative Healthcare System: Facilitates communication among care providers and virtual healthcare assistants (VHAs) through patient-specific communication channels, including communication threads and dashboards.
+Virtual Healthcare Assistants (VHAs): AI-driven assistants that retrieve patient information, provide care guidelines, predict future patient states, and monitor patient conditions. They understand natural language inputs from care providers.
+Patient-Specific Communication Channels: Each patient has a dedicated communication channel with a communication thread for messaging and a dashboard for displaying patient-specific medical information.
+Real-Time Monitoring and Alerts: Monitors patient vital signs and other medical data in real-time, generating alerts and notifications when certain conditions are met.
+Personalized Notifications: Care providers can set personalized notifications for specific patient conditions or reminders, delivered in a timely manner to ensure prompt action.
+Timeline Feature: Provides a summary of relevant patient medical events over a predefined period, facilitating shift handovers and quick reviews of patient status.
+Integration with External Services: Integrates with external guideline and prediction services to provide up-to-date care guidelines and predictive analytics.
+
+Abstract
+The patent describes systems and methods for collaborative notifications in healthcare environments. The system includes a display and a computing device that generates and outputs a patient-specific communication thread. This thread includes communication among care providers and a virtual healthcare assistant. The system generates notifications indicating changes in a patient's state and outputs these notifications to the display. The notifications are integrated into the communication thread and can be viewed as part of the patient's communication history. The system aims to improve communication among care providers, reduce workload, and enhance patient care through real-time monitoring and personalized alerts.
+
+Methodology
+The methodology involves several key steps and components:
+System Architecture: The system includes a collaborative space server system that stores and executes communication threads, dashboards, and digital twins for each patient. It is connected to hospital operational systems, monitoring devices, and external services.
+Communication Threads and Dashboards: Each patient has a dedicated communication channel with a communication thread and a dashboard. The communication thread facilitates text and rich-media-based messages among care providers and VHAs, while the dashboard displays patient-specific medical information.
+
+
+Virtual Healthcare Assistants (VHAs):
+
+EMR VHA: Retrieves patient information from electronic medical records.
+Guideline VHA: Retrieves care guidelines from external services.
+Predictive VHA: Predicts future patient states using external prediction services.
+Listening VHA: Monitors communication and patient surroundings to infer patient status.
+Monitoring VHA: Receives and tracks patient data from monitoring devices.
+Notifications: The system generates and outputs notifications based on patient monitoring data, user requests, or changes in patient state. Notifications are classified by importance and can be personalized.
+Timeline Generation: The system generates a timeline of relevant patient medical events over a predefined period, which can be filtered and viewed by care providers.
+User Interaction: Care providers interact with the system through natural language inputs, selecting messages, and setting notification preferences.
+
+
+Results
+The results of implementing the system described in the patent include:
+Improved Communication: Enhanced communication and collaboration among care providers through dedicated communication channels and real-time updates.
+Reduced Workload: Virtual healthcare assistants handle information retrieval, patient monitoring, and predictive tasks, reducing the workload on care providers.
+Timely Alerts and Notifications: Personalized and automatic notifications ensure that care providers are promptly informed of changes in patient states, facilitating timely interventions.
+Enhanced Patient Care: Real-time monitoring, predictive analytics, and access to up-to-date care guidelines contribute to improved patient outcomes.
+Efficient Handover: The timeline feature provides a concise summary of patient events, making shift handovers more efficient and reducing the risk of information loss.
+Customizable and User-Friendly Interface: The system offers a customizable and intuitive interface, allowing care providers to easily access relevant patient information and set personalized notifications.
 
-Automatically aggregating clinical data (e.g., prescriptions, diagnoses, immunizations, vitals) from multiple sources (e.g., EHRs, pharmacies, labs) into a unified patient record.
-Detecting discrepancies between prescribed, filled, and actual medication usage via user-input comparisons and AI-driven validation.
-Generating interactive dashboards with color-coded statuses (e.g., "Validated," "Needs Review," "In Review") to flag non-adherence, duplicates, or errors.
-Enabling care managers to annotate, augment, or correct clinical data (e.g., adjusting dosages, adding notes on side effects).
-Supporting real-time collaboration among providers (e.g., physicians, pharmacists) with task assignments, follow-up flags, and audit trails.
-Integrating with EHRs and pharmacy systems to close loops in medication management (e.g., confirming refills, resolving conflicts).
-Ensuring compliance with regulatory standards (e.g., HIPAA, 21 CFR Part 11) through secure data handling and version control.
 
-Abstract:
-The patent describes a method, apparatus, and computer program product for managing clinical information by automating the reconciliation of medication and health data from diverse healthcare entities. The system:
 
-Receives clinical data (e.g., medications, diagnoses, lab results) from multiple sources (e.g., hospitals, pharmacies, EHRs) and consolidates it into a centralized record.
-Compares prescribed vs. actual medication usage to identify adherence gaps, duplicates, or errors, using user inputs and AI-driven rules.
-Generates a dynamic user interface with visible indicia (e.g., color codes, flags) to highlight statuses (e.g., "Validated," "Needs Review") and discrepancies (e.g., missed doses, incorrect dosages).
-Allows care managers to annotate, validate, or flag data for follow-up, ensuring accurate, up-to-date records.
-Facilitates team-based care with role-based access, task assignments, and audit trails for accountability.
-Supports regulatory compliance by tracking changes and documenting interventions.
-The system reduces medication errors, improves adherence, and enhances care coordination by transforming fragmented data into actionable, validated insights for providers.
-
-Methodology:
-1. Data Aggregation:
-
-Sources:
-
-EHRs (e.g., Epic, Cerner), pharmacy systems (e.g., CVS, Walgreens), labs (e.g., Quest, LabCorp), hospitals, and specialty clinics.
-Data Types: Medications (prescribed/filled), diagnoses, immunizations, vitals, lab results, allergies.
-
-Automated Ingestion:
-
-APIs/HL7/FHIR pull data in real-time (e.g., new prescriptions, lab updates).
-Patient Matching: Uses MRNs (Medical Record Numbers) or demographics (name, DOB) to link records across sources.
-
-Centralized Storage:
-
-Stores data in a structured database (e.g., SQL/NoSQL) with timestamped versions for auditability.
-
-2. Medication Reconciliation:
-
-Comparison Engine:
-
-Prescribed vs. Filled vs. Actual Usage:
-
-Prescribed: Doctor’s orders (e.g., "Lisinopril 10mg daily").
-Filled: Pharmacy records (e.g., "Lisinopril 10mg, 30-day supply, filled 5/1/2023").
-Actual Usage: Patient-reported or care manager-verified (e.g., "Takes 5mg every other day").
-
-Discrepancy Detection:
-
-Flags missed doses, wrong dosages, unauthorized changes, or duplicates (e.g., same drug from two providers).
-
-
-Status Assignment:
-
-Validated: Usage matches prescription.
-Needs Review: New data (e.g., new prescription) or unresolved discrepancies.
-In Review: Actively being investigated (e.g., patient non-adherence).
-Discontinued/Error: Outdated or incorrect data.
-
-3. User Interface (UI) Generation:
-
-Dashboards:
-
-Patient-Centric Views: Lists all medications with statuses, sources, and timestamps.
-Color Coding:
-
-Green: Validated.
-Yellow: Needs Review.
-Red: Critical discrepancy (e.g., drug interaction).
-
-Flags/Icons: Highlight urgent issues (e.g., ! for allergies, ⚠️ for duplicates).
-
-Drill-Down Details:
-
-Clicking a medication shows prescription history, fill records, and usage notes.
-Example: "Warfarin 5mg" → "Prescribed 6/1/2023; Filled 6/2/2023; Patient reports taking 2.5mg due to bruising."
-
-Annotation Tools:
-
-Care managers add notes (e.g., "Called patient—confirmed adherence") or correct errors (e.g., update dosage).
-
-4. Care Manager Workflows:
-
-Review Process:
-
-New Data Alerts: Notifications for unreviewed medications (e.g., "New Rx: Atorvastatin 20mg").
-Follow-Up Tasks: Assigns actions (e.g., "Call patient to confirm adherence").
-
-Collaboration:
-
-Shared Notes: Team members see annotations (e.g., "Pharmacist noted potential interaction with grapefruit").
-Task Assignment: Delegates resolution (e.g., "Nurse to educate patient on insulin timing").
-
-Audit Trails:
-
-Logs all changes (e.g., "Dosage adjusted from 10mg to 5mg on 6/15/2023 by Dr. Smith").
-
-5. Integration and Compliance:
-
-EHR/Pharmacy Sync:
-
-Bi-directional updates: Pushes validated data back to EHRs/pharmacies (e.g., "Patient now on 5mg Warfarin").
-Closed-Loop Reconciliation: Confirms pharmacy refills match prescriptions.
-
-Regulatory Standards:
-
-HIPAA: Encrypts PHI; restricts access via role-based permissions.
-21 CFR Part 11: Electronic signatures for data changes.
-
-Interoperability:
-
-HL7/FHIR APIs ensure compatibility with Epic, Cerner, Allscripts.
-
-6. AI and Automation:
-
-Rule-Based Validation:
-
-Drug Interaction Checks: Flags Warfarin + NSAIDs (bleeding risk).
-Dosage Alerts: "Patient on 2x prescribed dose of Metformin."
-
-Predictive Analytics:
-
-Identifies high-risk patients (e.g., polypharmacy, non-adherence patterns).
-
-Natural Language Processing (NLP):
-
-Extracts usage details from clinical notes (e.g., "Patient skips doses on weekends").
-
-7. Example Workflow (FIGS. 4A–4N):
-
-Data Ingestion:
-
-System receives new Rx for Lisinopril 10mg from EHR and fill record for 5mg from pharmacy.
-
-Discrepancy Flagged:
-
-UI shows yellow "Needs Review" status; care manager investigates.
-
-Patient Call:
-
-Care manager learns patient takes 5mg due to dizziness; annotates record.
-
-Status Updated:
-
-UI changes to "Validated (Adjusted Dosage)" with note: "Patient tolerates 5mg; notify PCP."
-
-PCP Alerted:
-
-System sends task to physician to approve dosage change.
-
-
-Results:
-Key Outcomes:
-
-
-Reduced Medication Errors:
-
-Catches 90% of discrepancies (e.g., wrong dosages, duplicates) before harm occurs.
-Example: Flags patient on 2x dose of insulin, preventing hypoglycemia.
-
-
-Improved Adherence:
-
-30% increase in adherence via real-time follow-ups (e.g., calls for missed doses).
-Personalized education (e.g., videos on how to use inhalers) boosts comprehension.
-
-
-Enhanced Care Coordination:
-
-50% fewer redundant tests (e.g., avoids repeating labs when records are centralized).
-Team alignment: Nurses, pharmacists, and doctors share notes in one system.
-
-
-Time and Cost Savings:
-
-Cuts reconciliation time by 70% (automates manual chart reviews).
-$2M/year saved in avoided hospitalizations (e.g., preventing drug interactions).
-
-
-Regulatory Compliance:
-
-100% audit-ready records with timestamped changes and e-signatures.
-HIPAA/GDPR compliant data handling.
-
-
-Patient Safety:
-
-40% reduction in adverse drug events (e.g., flags Warfarin + Cranberry Juice).
-Post-discharge support: Automated follow-up surveys on side effects.
-
-
-Scalability:
-
-Handles 10,000+ patients with cloud-based deployment.
-Adapts to any EHR/pharmacy system via FHIR APIs.
-
-Real-World Impact:
-
-Chronic Disease Management:
-
-Diabetes: Tracks HbA1c trends vs. metformin adherence; flags non-compliance.
-Hypertension: Alerts when BP remains high despite medication fills.
-
-Polypharmacy Patients:
-
-Elderly on 10+ meds: Identifies 3+ potential interactions per patient.
-
-Transitions of Care:
-
-Hospital → Home: Ensures discharge meds match outpatient Rxs.
-
-Clinical Trials:
-
-Protocol Adherence: Verifies patients take study drugs as prescribed.
-
-
-Why It Matters:
-This system transforms fragmented, error-prone medication management into a collaborative, data-driven process. By automating reconciliation, flagging risks, and enabling teamwork, it reduces harm, cuts costs, and improves outcomes—critical for high-risk populations (e.g., elderly, chronic disease patients) and complex care settings (e.g., ICUs, oncology). The innovation is foundational for value-based care, where accuracy and coordination directly impact patient safety and reimbursement.
 
 """
 
