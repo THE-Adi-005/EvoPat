@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧬 EvoPat — Evolutionary Patent Summarizer
+# 🧬 MiniPat LLM — Evolutionary Patent Summarizer
 
 **A RAG-based patent analysis pipeline powered by Mistral-7B and FAISS**
 
