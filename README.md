@@ -15,7 +15,7 @@
 
 ## 📌 Overview
 
-**EvoPat** is an end-to-end **Retrieval-Augmented Generation (RAG)** pipeline designed to automatically analyze and summarize patent documents. It extracts text from patent PDFs using OCR, builds a semantic vector index, retrieves the most relevant passages, and generates structured patent summaries using a large language model — then evaluates the output quality against gold-standard references.
+**MiniPat LLM** is an end-to-end **Retrieval-Augmented Generation (RAG)** pipeline designed to automatically analyze and summarize patent documents. It extracts text from patent PDFs using OCR, builds a semantic vector index, retrieves the most relevant passages, and generates structured patent summaries using a large language model — then evaluates the output quality against gold-standard references.
 
 ### ✨ Key Features
 
